@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import navs from '@/utils/navs'
+import Login from '@/components/common/login/Login.vue'
 
 
 
@@ -19,13 +20,24 @@ navs.map(ele=>{
   }
 })
 
-
 let router = new VueRouter({
   routes: [
     ...routes,
-
+    { path: '/login', components: {login: Login } },
     { path: '/*', redirect: '/home'}
   ]
+})
+
+router.beforeEach(function(to, from, next) {
+  if (to.path != '/login') {
+    if(localStorage.getItem('token')) {
+      next()
+    } else {
+      next('/login')
+    }
+  } else {
+    next()
+  }
 })
 
 // 抛出实例

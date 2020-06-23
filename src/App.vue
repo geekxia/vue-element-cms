@@ -1,7 +1,11 @@
 <template>
   <div class="app">
 
-    <QfLayout></QfLayout>
+    <!-- 登录页面 -->
+    <router-view name='login' v-if='$route.path=="/login"'></router-view>
+
+    <!-- 系统内部页面 -->
+    <QfLayout v-else></QfLayout>
 
   </div>
 </template>
