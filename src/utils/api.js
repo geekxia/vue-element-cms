@@ -8,15 +8,25 @@ export function getGoodList(params) {
   })
 }
 
+// 获取所有品类
 export function getCates(params) {
   return fetch({
-    url: '/jd/getAllCates',
+    url: '/good/cates',
     method: 'GET',
     params
   })
 }
 
+export function addGood(data) {
+  return fetch({
+    url: '/good/add',
+    method: 'POST',
+    data
+  })
+}
+
 export default {
   getGoodList,
-  getCates
+  getCates,
+  addGood
 }

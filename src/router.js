@@ -21,7 +21,6 @@ navs.map(ele=>{
 })
 
 let router = new VueRouter({
-  mode: 'history',
   routes: [
     ...routes,
     { path: '/login', components: {login: Login } },

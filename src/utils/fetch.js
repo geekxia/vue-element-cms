@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-// let baseURL_dev = 'http://localhost:8889'  // 解决跨域问题
+let baseURL_dev = 'http://localhost:8889/api'  // 解决跨域问题
 // let baseURL_pro = ''  // 公司域名
-let baseURL_test = 'http://10.36.147.164:9999' // 内网地址
+// let baseURL_test = 'http://10.36.147.164:9999' // 内网地址
 
 // 创建axios实例
 const fetch = axios.create({
-  baseURL: baseURL_test,
+  baseURL: baseURL_dev,
   timeout: 7000,  // 超时设置
   headers: {
     'Content-Type': 'application/json;charset=UTF-8'
