@@ -9,7 +9,13 @@
     </el-row>
     <el-row>
       <span>商品图片：</span>
-      <el-input v-model="good.img" placeholder="请输入内容"></el-input>
+      <el-upload
+        :show-file-list='false'
+        :action="img.baseUrl+'/upload/img'"
+        :on-success="success">
+        <el-button size="small" type="primary">点击上传</el-button>
+      </el-upload>
+
     </el-row>
     <el-row>
       <span>商品描述：</span>
@@ -44,24 +50,16 @@
     </el-row>
 
   </div>
-
-  <!-- 上传图片 -->
-  <!-- action字符必须是图片上传的url地址 -->
-  <!-- <el-upload
-    class="upload-demo"
-    action="http://localhost:9999/upload/img"
-    :on-success='uploadSuccess'>
-    <el-button size="small" type="primary">点击上传</el-button>
-    <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-  </el-upload> -->
 </div>
 </template>
 
 <script>
+import img from '@/utils/img'
 export default {
   data: function() {
     return {
-      img: '',
+      img,
+      cates: [],
       good: {
         name: '',
         img: '',
@@ -70,7 +68,7 @@ export default {
         cate: '',
         price: ''
       },
-      cates: []
+
     }
   },
   mounted() {
@@ -79,10 +77,10 @@ export default {
     })
   },
   methods: {
-    // uploadSuccess(response) {
-    //   console.log('res', response)
-    //   this.img = response.data.url
-    // },
+    success(res) {
+      console.log('图片上传成功', res)
+      this.good.img = res.data.url
+    },
     confirm() {
       this.$http.addGood(this.good).then(()=>{
         this.good = {

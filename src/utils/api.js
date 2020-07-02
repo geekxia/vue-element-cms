@@ -25,8 +25,43 @@ export function addGood(data) {
   })
 }
 
+export function articleCreate(data) {
+  return fetch({
+    url: '/good/create',
+    method: 'POST',
+    data
+  })
+}
+
+export function getAds(params) {
+  return fetch({
+    url: '/ad/list',
+    method: 'GET',
+    params
+  })
+}
+export function createAd(data) {
+  return fetch({
+    url: '/ad/create',
+    method: 'POST',
+    data
+  })
+}
+
+export function deleteAd(params) {
+  return fetch({
+    url: '/ad/del',
+    method: 'GET',
+    params
+  })
+}
+
 export default {
   getGoodList,
   getCates,
-  addGood
+  addGood,
+  articleCreate,
+  getAds,
+  createAd,
+  deleteAd
 }

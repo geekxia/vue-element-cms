@@ -4,6 +4,8 @@ const Analyze = ()=>import('@/views/home/Analyze.vue')
 
 const Good = ()=>import('@/views/good/Good.vue')
 const AddGood = ()=>import('@/views/good/AddGood.vue')
+const Editor = ()=>import('@/views/good/Editor.vue')
+const QfAd = ()=>import('@/views/ad/QfAd.vue')
 
 export default [
   {
@@ -24,7 +26,16 @@ export default [
     title: '商品管理',
     icon: 'el-icon-menu',
     children: [
-      { id:21, path: '/good/add', title:'新增', icon: 'el-icon-table-lamp', comm:AddGood }
+      { id:21, path: '/good/add', title:'新增', icon: 'el-icon-table-lamp', comm:AddGood },
+      { id:22, path: '/good/editor', title:'文章', icon: 'el-icon-table-lamp', comm:Editor }
+
     ]
+  },
+  {
+    id: 3,
+    path: '/ad',
+    comm: QfAd,
+    title: '广告中心',
+    icon: 'el-icon-location'
   }
 ]
