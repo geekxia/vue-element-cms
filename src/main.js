@@ -17,6 +17,10 @@ import store from './store/'  // 导入store目录中的index.js文件
 import http from './utils/api'
 Vue.prototype.$http = http
 
+// socket
+import socket from './utils/socket'
+Vue.prototype.$socket = socket
+
 // 创建根组件实例
 new Vue({
   router,

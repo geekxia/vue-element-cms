@@ -6,6 +6,7 @@ const Good = ()=>import('@/views/good/Good.vue')
 const AddGood = ()=>import('@/views/good/AddGood.vue')
 const Editor = ()=>import('@/views/good/Editor.vue')
 const QfAd = ()=>import('@/views/ad/QfAd.vue')
+const Chat = ()=>import('@/views/chat/Chat.vue')
 
 export default [
   {
@@ -36,6 +37,13 @@ export default [
     path: '/ad',
     comm: QfAd,
     title: '广告中心',
+    icon: 'el-icon-location'
+  },
+  {
+    id: 4,
+    path: '/chat',
+    comm: Chat,
+    title: '聊天室',
     icon: 'el-icon-location'
   }
 ]
